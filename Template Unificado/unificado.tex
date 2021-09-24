@@ -1,0 +1,197 @@
+% Copyright (c) 2021 zaymuel under MIT License
+% For more info, https://github.com/zaymuel/LaTeX-templates
+
+\documentclass[12pt, a4paper]{article}
+
+% mudar a cada documento
+\newcommand{\NOMEROTEIRO}{Prova X / Trabalho X}
+\newcommand{\NOMEPROF}{NOMEPROF}
+\newcommand{\NOMEMATERIA}{NOMEMATERIA}
+\newcommand{\TURMA}{TURMA}
+\newcommand{\SEMESTRE}{202X/X}
+\newcommand{\DEPARTAMENTO}{Instituto de Física / Departamento de Matemática}
+
+\newcommand{\MEUNOME}{MEUNOME}
+\newcommand{\MINHAMATRICULA}{MINHAMATRICULA}
+\newcommand{\MINHAUNIVERSIDADE}{Universidade de Brasília}
+
+\usepackage{geometry}
+ \geometry{                     % margens ABNT
+ a4paper,
+ left=3cm,
+ top=3cm,
+ right=2cm,
+ bottom=2cm
+ }
+
+% peguei o seguinte bloco de alguem (não sei quem), e modifiquei.
+
+% Pacotes básicos 
+% ----------------------------------------------------------
+\usepackage{lmodern}		    	% Usa a fonte Latin Modern	
+%--------------------------------------
+% Encoding - essential!
+\usepackage[T1]{fontenc}		  % Seleção de códigos de fonte.
+\usepackage[utf8]{inputenc}		% Codificação do documento (conversão automática dos acentos)
+%--------------------------------------
+% Hyphenation rules
+\usepackage{hyphenat}
+\hyphenation{mate-mática recu-perar}
+%--------------------------------------
+\usepackage{indentfirst}	       	% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}		           	% Controle das cores
+\usepackage{graphicx}		         	% Inclusão de gráficos
+\graphicspath{ {./images/} }      % define diretório raiz para imagens,
+% então é só colocar o nome do arquivo em \includegraphics{nomedoarquivo}
+\usepackage{microtype} 		       	% para melhorias de justificação
+\usepackage{ifthen}		          	% para montar condicionais
+\usepackage[brazil]{babel}	     	% para utilizar termos em português
+\usepackage[autostyle]{csquotes}  % fazer as aspas aparecerem corretamente
+  \MakeOuterQuote{"}              % poder usar "aspas"
+\usepackage[final]{pdfpages}      % para incluir páginas de arquivos PDF
+\usepackage{lipsum}				        % para geração de lorem ipsum
+\usepackage{float} 		            % Para a figura ficar na posição correta
+\usepackage{caption}              % configura legenda 
+    \captionsetup{font=small}	    % tamanho da fonte 10pt
+\usepackage{footmisc}             % precisa ir antes de hyperref, senao referencias a rodapes quebram
+\usepackage[colorlinks=true]{hyperref} % links coloridos
+
+% These packages allow the most of the common "mathly things"
+\usepackage{amsmath,amsthm,amssymb}
+\usepackage{bm}
+
+\usepackage{physics}    % physics things + derivatives; \dd, \dv
+\usepackage{siunitx}    % standardization of si units
+
+\usepackage{cancel}     % strikethrough cancelling on equations
+
+% \usepackage{multirow}   % celulas em tabelas com varias linhas
+% \usepackage{enumitem}
+% \usepackage{pdflscape}  % escolher páginas para irem em paisagem (landscape)
+
+% \usepackage{minted}      % incluir código-fonte
+%   \usemintedstyle{borland}
+
+% https://tex.stackexchange.com/questions/211136/environment-solution-environment-for-exercises-different-than-proof-environme
+\newenvironment{resposta}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Resposta, conforme a subsequente resolução]}
+  {\end{proof}}
+\newenvironment{resolucao}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Resolução]}
+  {\end{proof}}
+  
+% OPCIONAL: abaixo, para não precisar escrever "Questão"
+% https://tex.stackexchange.com/questions/245089/how-to-change-the-section-title-and-its-arrangement-in-a-latex-document
+\renewcommand{\thesection}{Questão \arabic{section}}
+\usepackage{titlesec}
+\titleformat{\section}
+{\normalfont\Large\bfseries}{\thesection}{1em}{}
+\renewcommand{\thesubsection}{(\alph{subsection})}
+\usepackage{titlesec}
+\titleformat{\subsection}
+{\normalfont\large\bfseries}{\thesubsection}{1em}{}
+
+
+% using unit vectors: \uvec{i}, \uvec{j}
+% usando vetores unitários: \uvec{i}, \uvec{j}
+\DeclareRobustCommand{\uvec}[1]{{%
+  \ifcsname uvec#1\endcsname
+     \csname uvec#1\endcsname
+  \else
+    \bm{\hat{\mathbf{#1}}}%
+  \fi
+}}
+
+\usepackage[
+backend=biber,
+style=numeric,
+sorting=none                    % sort pela ordem de ocorrência
+]{biblatex}                     % usa o biblatex, ferramenta + moderna para a bibliografia
+    \addbibresource{references.bib}     % puxa as entries de bibliografia desse arquivo
+
+
+\title{\NOMEROTEIRO \\
+    {\Large \NOMEMATERIA - Turma \TURMA - \SEMESTRE} \\
+    {\large \emph{Professor} \NOMEPROF} \\
+    \DEPARTAMENTO \\
+     \MINHAUNIVERSIDADE}
+\author{
+\text{\MEUNOME} –- \MINHAMATRICULA
+}
+\date{\today}
+
+\begin{document}
+\begin{titlepage}
+\centering
+
+% logo UnB
+\begin{figure}[htbp] % usar [H] para inserir EXATAMENTE AQUI
+\vspace*{\fill} % se quiser encher a pagina
+\centering
+\noindent
+\makebox[\textwidth]{
+% \includegraphics[scale=1]{unb_logo_comprido.pdf}
+\includegraphics[scale=2]{unb_logo.pdf}    % University Logo
+}
+\end{figure}
+
+\vspace*{1 cm}
+
+\textsc{\huge \MINHAUNIVERSIDADE}\\[0.5 cm]	% University Name
+\textsc{\Large \DEPARTAMENTO}\\[0.8 cm]	% Department Name
+\rule{\linewidth}{0.2 mm} \\[0.4 cm]
+{\huge \bfseries \NOMEROTEIRO}\\
+\rule{\linewidth}{0.2 mm} \\[1.2 cm]
+\textsc{\LARGE \NOMEMATERIA \ -- {\Large Turma} \TURMA \ -- \SEMESTRE}\\[1 cm]			% Course Code, Turma
+
+\begin{minipage}{0.35\textwidth}
+\begin{flushleft} \large
+  \emph{Professor:}\\
+  \NOMEPROF
+\end{flushleft}
+\end{minipage}~
+\begin{minipage}{0.6\textwidth}
+\begin{flushright} \large
+    \text{\emph{Estudante:}} \\
+    
+        \text{\MEUNOME} -- \MINHAMATRICULA \\
+    \end{flushright}
+\end{minipage}\\
+
+\vspace{1 cm}
+{\large \today}
+
+\tableofcontents
+
+\vspace*{\fill}
+
+\end{titlepage}
+%\maketitle
+
+
+% \includepdf[pages=1]{images/F2e de.pdf}
+
+\section{Questão 1}
+\subsection{Letra a}
+
+% \begin{landscape}
+% Visão geral da tabela usada:
+% \end{landscape}
+
+%% using images, `ctrl' + `/' to uncomment
+%% escolher entre 1 dos seguintes modos:
+% \begin{figure}[htbp]    % onde ficar melhor
+% \begin{figure}[H]       % IMEDIATAMENTE AQUI
+% % \vspace*{\fill}\centering\noindent
+% % definir escala arbitraria ou largura do texto
+% \makebox[\textwidth]{
+%   \includegraphics[scale=0.5]{images/1.png}
+%   \includegraphics[width=0.9\textwidth]{images/1.png}
+% }
+% \caption{Brasil \protect\cite[58]{snis}}
+% \label{fig:indicesgeraisregiao}
+% \vspace*{\fill}
+% \end{figure}
+
+
+\end{document}
