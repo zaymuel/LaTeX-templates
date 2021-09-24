@@ -120,53 +120,55 @@ sorting=none                    % sort pela ordem de ocorrência
 }
 \date{\today}
 
+
 \begin{document}
+% titulo, nome, data, etc
+% \maketitle
+
 \begin{titlepage}
-\centering
+  \centering
 
-% logo UnB
-\begin{figure}[htbp] % usar [H] para inserir EXATAMENTE AQUI
-\vspace*{\fill} % se quiser encher a pagina
-\centering
-\noindent
-\makebox[\textwidth]{
-% \includegraphics[scale=1]{unb_logo_comprido.pdf}
-\includegraphics[scale=2]{unb_logo.pdf}    % University Logo
-}
-\end{figure}
+  % logo UnB
+  \begin{figure}[htbp] % usar [H] para inserir EXATAMENTE AQUI
+    \vspace*{\fill} % se quiser encher a pagina
+    \centering
+    \noindent
+    \makebox[\textwidth]{
+      % \includegraphics[scale=1]{unb_logo_comprido.pdf}
+      \includegraphics[scale=2]{unb_logo.pdf}    % University Logo
+    }
+  \end{figure}
 
-\vspace*{1 cm}
+  \vspace*{1 cm}
 
-\textsc{\huge \MINHAUNIVERSIDADE}\\[0.5 cm]	% University Name
-\textsc{\Large \DEPARTAMENTO}\\[0.8 cm]	% Department Name
-\rule{\linewidth}{0.2 mm} \\[0.4 cm]
-{\huge \bfseries \NOMEROTEIRO}\\
-\rule{\linewidth}{0.2 mm} \\[1.2 cm]
-\textsc{\LARGE \NOMEMATERIA \ -- {\Large Turma} \TURMA \ -- \SEMESTRE}\\[1 cm]			% Course Code, Turma
+  \textsc{\huge \MINHAUNIVERSIDADE}\\[0.5 cm]	% University Name
+  \textsc{\Large \DEPARTAMENTO}\\[0.8 cm]	% Department Name
+  \rule{\linewidth}{0.2 mm} \\[0.4 cm]
+  {\huge \bfseries \NOMEROTEIRO}\\
+  \rule{\linewidth}{0.2 mm} \\[1.2 cm]
+  \textsc{\LARGE \NOMEMATERIA \ -- {\Large Turma} \TURMA \ -- \SEMESTRE}\\[1 cm]			% Course Code, Turma
 
-\begin{minipage}{0.35\textwidth}
-\begin{flushleft} \large
-  \emph{Professor:}\\
-  \NOMEPROF
-\end{flushleft}
-\end{minipage}~
-\begin{minipage}{0.6\textwidth}
-\begin{flushright} \large
-    \text{\emph{Estudante:}} \\
-    
-        \text{\MEUNOME} -- \MINHAMATRICULA \\
+  \begin{minipage}{0.35\textwidth}
+    \begin{flushleft} \large
+      \emph{Professor:}\\
+      \NOMEPROF
+    \end{flushleft}
+  \end{minipage}~
+  \begin{minipage}{0.6\textwidth}
+    \begin{flushright} \large
+      \text{\emph{Estudante:}} \\
+      \text{\MEUNOME} -- \MINHAMATRICULA \\
     \end{flushright}
-\end{minipage}\\
+  \end{minipage}\\
 
-\vspace{1 cm}
-{\large \today}
+  \vspace{1 cm}
+  {\large \today}
 
-\tableofcontents
+  \tableofcontents
 
-\vspace*{\fill}
+  \vspace*{\fill}
 
 \end{titlepage}
-%\maketitle
 
 
 % \includepdf[pages=1]{images/F2e de.pdf}
