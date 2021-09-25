@@ -34,7 +34,7 @@
 \usepackage[T1]{fontenc}		  % Seleção de códigos de fonte.
 \usepackage[utf8]{inputenc}		% Codificação do documento (conversão automática dos acentos)
 %--------------------------------------
-% Hyphenation rules
+% Regras de Hifenização
 \usepackage{hyphenat}
 \hyphenation{mate-mática recu-perar}
 %--------------------------------------
@@ -47,23 +47,23 @@
 \usepackage{ifthen}		          	% para montar condicionais
 \usepackage[brazil]{babel}	     	% para utilizar termos em português
 \usepackage[autostyle]{csquotes}  % fazer as aspas aparecerem corretamente
-  \MakeOuterQuote{"}              % poder usar "aspas"
+  \MakeOuterQuote{"}              % poder usar aspas duplas ("") em vez de (``'')
 \usepackage[final]{pdfpages}      % para incluir páginas de arquivos PDF
 \usepackage{lipsum}				        % para geração de lorem ipsum
 \usepackage{float} 		            % Para a figura ficar na posição correta
 \usepackage{caption}              % configura legenda 
-    \captionsetup{font=small}	    % tamanho da fonte 10pt
+    \captionsetup{font=small}	    % tamanho da fonte 10pt na legenda
 \usepackage{footmisc}             % precisa ir antes de hyperref, senao referencias a rodapes quebram
 \usepackage[colorlinks=true]{hyperref} % links coloridos
 
-% These packages allow the most of the common "mathly things"
+% Pacotes que permitem as mais comuns "coisas matemáticas"
 \usepackage{amsmath,amsthm,amssymb}
 \usepackage{bm}
 
-\usepackage{physics}    % physics things + derivatives; \dd, \dv
-\usepackage{siunitx}    % standardization of si units
+\usepackage{physics}    % coisas físicas, diferenciais (\dd) e derivadas (\dv)
+\usepackage{siunitx}    % unidades padrão do SI
 
-\usepackage{cancel}     % strikethrough cancelling on equations
+\usepackage{cancel}     % cancelamento de termos na equação
 
 % \usepackage{multirow}   % celulas em tabelas com varias linhas
 % \usepackage{enumitem}
@@ -74,10 +74,10 @@
 
 % Environments for `answer' and `resolution'
 % https://tex.stackexchange.com/questions/211136/environment-solution-environment-for-exercises-different-than-proof-environme
-\newenvironment{answer}
+\newenvironment{resposta}
   {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Resposta, conforme a subsequente resolução]}
   {\end{proof}}
-\newenvironment{resolution}
+\newenvironment{resolucao}
   {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Resolução]}
   {\end{proof}}
   
@@ -93,7 +93,6 @@
 {\normalfont\large\bfseries}{\thesubsection}{1em}{}
 
 
-% using unit vectors: \uvec{i}, \uvec{j}
 % usando vetores unitários: \uvec{i}, \uvec{j}
 \DeclareRobustCommand{\uvec}[1]{{%
   \ifcsname uvec#1\endcsname
@@ -103,11 +102,9 @@
   \fi
 }}
 
-\usepackage[
-backend=biber,
-style=numeric,
-sorting=none                    % sort pela ordem de ocorrência
-]{biblatex}                     % usa o biblatex, ferramenta + moderna para a bibliografia
+\usepackage[backend=biber, style=numeric, 
+sorting=none  % sort pela ordem de ocorrência
+]{biblatex}   % usa o biblatex, ferramenta + moderna para a bibliografia
     \addbibresource{references.bib}     % puxa as entries de bibliografia desse arquivo
 
 
@@ -117,7 +114,7 @@ sorting=none                    % sort pela ordem de ocorrência
     \DEPARTAMENTO \\
      \MINHAUNIVERSIDADE}}
 \author{
-\text{\MEUNOME} –- \MINHAMATRICULA
+\text{\MEUNOME} -- \MINHAMATRICULA
 }
 \date{\today}
 
@@ -179,22 +176,27 @@ sorting=none                    % sort pela ordem de ocorrência
   %   \label{q1}
   % \end{equation}
 }
+
+% [pages=`n`] para página específica,
+% [pages=`n-m`] para range das páginas `n` a `m`,
+% [pages=`-`] para todas as páginas.
 % \includepdf[pages=1]{images/F2e de.pdf}
 \section{} % Questão 1
-This is the question's general instrucion section.
+Considerações gerais e instruções da questão. Ex: ``Considere $$I = \iiint\limits_E \dd{x_1} \dd{x_2} \dd{x_3}$$...''
 
 \subsection{} % Letra a
-This is an item on the question. \EXEMPLOITEMa
+Item (a) da questão. \EXEMPLOITEMa
 % \paragraph{(a)} Alternative display of an item on the question. \EXEMPLOITEMa
+Ex: ``Esboço do sólido  $E'$ em coordenadas esféricas $\rho, \theta, \phi$ que irá corresponder a $E$.''
 
-% resolution of the (a) subitem
-\begin{answer}
+% resolução do item (a)
+\begin{resposta}
   \begin{align*}
     y=y
   \end{align*}
-\end{answer}
+\end{resposta}
 
-\begin{resolution}
+\begin{resolucao}
   \begin{align}
     z=z
     \label{q2}
@@ -203,25 +205,33 @@ This is an item on the question. \EXEMPLOITEMa
   \begin{align*}
     \int{ \dv{}{t} \left[\mu(t)y(t)\right] \dd{t} } & = \int{ [\mu(t) \cdot t] \dd{t} }
                                                     &                                   & \text{pelo Teorema Fundamental do Cálculo:} \\
+    \dots
   \end{align*}
-\end{resolution}
+\end{resolucao}
 
 % \begin{landscape}
 % Visão geral da tabela usada:
 % \end{landscape}
 
+% \begin{alignat*}{2}
+%     0 &\le \theta & &\le 2 \pi \\
+%     0 &\le \phi   & &\le \frac{\pi}{4} \\
+%     0 &\le \rho   & &\le \cos{\phi}
+% \end{alignat*}
+
 %% using images, `ctrl' + `/' to uncomment
 %% escolher entre 1 dos seguintes modos:
 % \begin{figure}[htbp]    % onde ficar melhor
-% \begin{figure}[H]       % IMEDIATAMENTE AQUI
-% % \vspace*{\fill}\centering\noindent
+% \begin{figure}[H]       % EXATAMENTE AQUI
+% \vspace*{\fill} % se quiser encher a pagina
+% \centering\noindent
 % % definir escala arbitraria ou largura do texto
 % \makebox[\textwidth]{
 %   \includegraphics[scale=0.5]{images/1.png}
 %   \includegraphics[width=0.9\textwidth]{images/1.png}
 % }
 % \caption{Brasil \protect\cite[58]{snis}}
-% \label{fig:indicesgeraisregiao}
+% \label{fig:esboco-1a}
 % \vspace*{\fill}
 % \end{figure}
 
