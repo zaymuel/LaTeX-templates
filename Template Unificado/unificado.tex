@@ -72,21 +72,22 @@
 % \usepackage{minted}      % incluir código-fonte
 %   \usemintedstyle{borland}
 
+% Environments for `answer' and `resolution'
 % https://tex.stackexchange.com/questions/211136/environment-solution-environment-for-exercises-different-than-proof-environme
-\newenvironment{resposta}
+\newenvironment{answer}
   {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Resposta, conforme a subsequente resolução]}
   {\end{proof}}
-\newenvironment{resolucao}
+\newenvironment{resolution}
   {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Resolução]}
   {\end{proof}}
   
 % OPCIONAL: abaixo, para não precisar escrever "Questão"
 % https://tex.stackexchange.com/questions/245089/how-to-change-the-section-title-and-its-arrangement-in-a-latex-document
-\renewcommand{\thesection}{Questão \arabic{section}}
+\renewcommand{\thesection}{Questão \arabic{section}} % Questão 1, Questão 2, etc
 \usepackage{titlesec}
 \titleformat{\section}
 {\normalfont\Large\bfseries}{\thesection}{1em}{}
-\renewcommand{\thesubsection}{(\alph{subsection})}
+\renewcommand{\thesubsection}{(\alph{subsection})}  % (a), (b), etc
 \usepackage{titlesec}
 \titleformat{\subsection}
 {\normalfont\large\bfseries}{\thesubsection}{1em}{}
@@ -111,10 +112,10 @@ sorting=none                    % sort pela ordem de ocorrência
 
 
 \title{\NOMEROTEIRO \\
-    {\Large \NOMEMATERIA - Turma \TURMA - \SEMESTRE} \\
-    {\large \emph{Professor} \NOMEPROF} \\
+    {\Large \NOMEMATERIA \ -- Turma \TURMA \ -- \SEMESTRE} \\
+    {\large \emph{Professor} \NOMEPROF \\
     \DEPARTAMENTO \\
-     \MINHAUNIVERSIDADE}
+     \MINHAUNIVERSIDADE}}
 \author{
 \text{\MEUNOME} –- \MINHAMATRICULA
 }
@@ -171,10 +172,39 @@ sorting=none                    % sort pela ordem de ocorrência
 \end{titlepage}
 
 
+\newcommand{\EXEMPLOITEMa}
+{Encontre a solução da equação diferencial dada por:
+  % \begin{equation}
+  %   x=x
+  %   \label{q1}
+  % \end{equation}
+}
 % \includepdf[pages=1]{images/F2e de.pdf}
+\section{} % Questão 1
+This is the question's general instrucion section.
 
-\section{Questão 1}
-\subsection{Letra a}
+\subsection{} % Letra a
+This is an item on the question. \EXEMPLOITEMa
+% \paragraph{(a)} Alternative display of an item on the question. \EXEMPLOITEMa
+
+% resolution of the (a) subitem
+\begin{answer}
+  \begin{align*}
+    y=y
+  \end{align*}
+\end{answer}
+
+\begin{resolution}
+  \begin{align}
+    z=z
+    \label{q2}
+  \end{align}
+  Integrando ambos os lados, temos:
+  \begin{align*}
+    \int{ \dv{}{t} \left[\mu(t)y(t)\right] \dd{t} } & = \int{ [\mu(t) \cdot t] \dd{t} }
+                                                    &                                   & \text{pelo Teorema Fundamental do Cálculo:} \\
+  \end{align*}
+\end{resolution}
 
 % \begin{landscape}
 % Visão geral da tabela usada:
