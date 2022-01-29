@@ -17,11 +17,7 @@
 
 \usepackage{geometry}
  \geometry{                     % margens ABNT
- a4paper,
- left=3cm,
- top=3cm,
- right=2cm,
- bottom=2cm
+ a4paper, left=3cm, top=3cm, right=2cm, bottom=2cm
  }
 
 % peguei o seguinte bloco de alguem (não sei quem), e modifiquei.
@@ -75,10 +71,10 @@
 % Environments for `answer' and `resolution'
 % https://tex.stackexchange.com/questions/211136/environment-solution-environment-for-exercises-different-than-proof-environme
 \newenvironment{resposta}
-  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Resposta, conforme a subsequente resolução]}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Resposta, conforme a subsequente resolução]$ $\par\nobreak\ignorespaces}
   {\end{proof}}
 \newenvironment{resolucao}
-  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Resolução]}
+  {\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Resolução]$ $\par\nobreak\ignorespaces}
   {\end{proof}}
   
 % OPCIONAL: abaixo, para não precisar escrever "Questão"
